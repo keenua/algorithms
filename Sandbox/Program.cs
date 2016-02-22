@@ -11,7 +11,7 @@ namespace Sandbox
     {
         static void Main(string[] args)
         {
-            Jewelry n = new Jewelry();
+            MiniPaint n = new MiniPaint();
             n.CreateTest();
 
             var solutions = new ISolution[]
@@ -26,7 +26,12 @@ namespace Sandbox
                 new AvoidRoads(),
                 new ChessMetric(),
                 new MoneyGraph(),
-                new Jewelry()
+                new Jewelry(),
+                new QuickSums(),
+                new ShortPalindromes(),
+                new StripePainter(),
+                new StarAdventure(),
+                new MiniPaint()
             };
 
             foreach (var s in solutions)

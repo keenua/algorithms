@@ -50,9 +50,14 @@
     <Compile Include="DynamicProgramming\Coins.cs" />
     <Compile Include="DynamicProgramming\FlowerGarden.cs" />
     <Compile Include="DynamicProgramming\Jewelry.cs" />
+    <Compile Include="DynamicProgramming\MiniPaint.cs" />
     <Compile Include="DynamicProgramming\MoneyGraph.cs" />
     <Compile Include="DynamicProgramming\NonDecreasing.cs" />
+    <Compile Include="DynamicProgramming\QuickSums.cs" />
     <Compile Include="DynamicProgramming\ShortestPath.cs" />
+    <Compile Include="DynamicProgramming\ShortPalindromes.cs" />
+    <Compile Include="DynamicProgramming\StarAdventure.cs" />
+    <Compile Include="DynamicProgramming\StripePainter.cs" />
     <Compile Include="DynamicProgramming\ZigZag.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="ISolution.cs" />
