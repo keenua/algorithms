@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Sandbox.DynamicProgramming;
+using Sandbox.Sorting;
 
 namespace Sandbox
 {
@@ -11,11 +12,13 @@ namespace Sandbox
     {
         static void Main(string[] args)
         {
-            MiniPaint n = new MiniPaint();
+            var n = new GumiAndSongs();
             n.CreateTest();
 
             var solutions = new ISolution[]
             {
+                // Dynamic programming
+
                 new Coins(),
                 new NonDecreasing(),
                 new ShortestPath(),
@@ -31,7 +34,17 @@ namespace Sandbox
                 new ShortPalindromes(),
                 new StripePainter(),
                 new StarAdventure(),
-                new MiniPaint()
+                new MiniPaint(),
+
+                // Sorting
+                
+                new BubbleSort(),
+                new InsertionSort(),
+                new MergeSort(),
+                new HeapSort(),
+                new QuickSort(),
+                new RadixSort(),
+                new GumiAndSongs()
             };
 
             foreach (var s in solutions)

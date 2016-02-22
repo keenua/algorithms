@@ -9,8 +9,6 @@ using System.Xml.Serialization;
 
 namespace Sandbox
 {
-    
-
     public abstract class Solution<TInput, TOutput> : ISolution
     {
         protected struct TestInput
