@@ -62,19 +62,27 @@ namespace Sandbox
             CreateTest(tests.Select(x => x.Input).ToList(), tests.Select(x => x.Output).ToList());
         }
 
-        protected virtual bool Compare(TOutput actual, TOutput expected)
+        protected bool CompareList<T>(TOutput actual, TOutput expected)
         {
-            if (actual is List<int>)
+            if (actual is List<T>)
             {
-                var aL = actual as List<int>;
-                var eL = expected as List<int>;
+                var aL = actual as List<T>;
+                var eL = expected as List<T>;
 
                 if (aL == null || eL == null) return aL == eL;
 
                 if (aL.Count != eL.Count) return false;
 
-                return !aL.Where((x, i) => eL[i] != x).Any();
+                return !aL.Where((x, i) => !Equals(eL[i], x)).Any();
             }
+
+            return false;
+        }
+
+        protected virtual bool Compare(TOutput actual, TOutput expected)
+        {
+            if (actual is List<int>) return CompareList<int>(actual, expected);
+            if (actual is List<string>) return CompareList<string>(actual, expected);
 
             return Equals(actual, expected);
         }
@@ -87,8 +95,12 @@ namespace Sandbox
             for (int i = 0; i < input.Count; i++)
             {
                 var output = Do(input[i]);
-
-                Debug.Assert(Compare(expectedOutput[i], output));
+                
+                if (!Compare(expectedOutput[i], output))
+                {
+                    Debugger.Break();
+                    Debug.Assert(false);
+                }
             }
         }
     }
