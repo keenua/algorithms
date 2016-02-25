@@ -12,7 +12,7 @@ namespace Sandbox
     {
         static void Main(string[] args)
         {
-            var n = new TheEncryption();
+            var n = new SquaredSubsets();
             n.CreateTest();
 
             var solutions = new ISolution[]
@@ -47,7 +47,8 @@ namespace Sandbox
                 new GumiAndSongs(),
                 new FoxAndMp3(),
                 new UnsortedSequence(),
-                new TheEncryption()
+                new TheEncryption(),
+                new SquaredSubsets()
             };
 
             foreach (var s in solutions)

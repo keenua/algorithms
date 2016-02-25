@@ -74,6 +74,7 @@
     <Compile Include="Sorting\QuickSort.cs" />
     <Compile Include="Sorting\RadixSort.cs" />
     <Compile Include="Sorting\SortingSolution.cs" />
+    <Compile Include="Sorting\SquaredSubsets.cs" />
     <Compile Include="Sorting\TheEncryption.cs" />
     <Compile Include="Sorting\UnsortedSequence.cs" />
   </ItemGroup>
