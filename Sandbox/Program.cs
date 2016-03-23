@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Sandbox.DynamicProgramming;
 using Sandbox.Sorting;
+using Sandbox.Strings;
 
 namespace Sandbox
 {
@@ -12,9 +13,6 @@ namespace Sandbox
     {
         static void Main(string[] args)
         {
-            var n = new SquaredSubsets();
-            n.CreateTest();
-
             var solutions = new ISolution[]
             {
                 // Dynamic programming
@@ -37,7 +35,7 @@ namespace Sandbox
                 new MiniPaint(),
 
                 // Sorting
-                
+
                 new BubbleSort(),
                 new InsertionSort(),
                 new MergeSort(),
@@ -48,12 +46,21 @@ namespace Sandbox
                 new FoxAndMp3(),
                 new UnsortedSequence(),
                 new TheEncryption(),
-                new SquaredSubsets()
+                new SquaredSubsets(),
+
+                // Strings
+
+                new RabinKarpAlgorithm(),
+                new RabinKarpDoubleHashAlgorithm(),
+                new MorrisPrattAlgorithm()
             };
 
             foreach (var s in solutions)
             {
+                if (!s.TestFilesExist) s.CreateTest();
+
                 s.Test();
+
                 Console.WriteLine($"{s.Name} passed");
             }
 

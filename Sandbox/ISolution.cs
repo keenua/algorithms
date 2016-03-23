@@ -9,6 +9,8 @@ namespace Sandbox
     public interface ISolution
     {
         string Name { get; }
+        bool TestFilesExist { get; }
+        void CreateTest();
         void Test();
     }
 }

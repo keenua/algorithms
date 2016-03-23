@@ -18,17 +18,25 @@ namespace Sandbox
         }
 
         public string Name { get; private set; }
+        private string TestFileInput { get { return $@"Tests\{Name}_input.txt"; } }
+        private string TestFileOutput { get { return $@"Tests\{Name}_output.txt"; } }
+
+        public bool TestFilesExist { get { return File.Exists(TestFileInput) && File.Exists(TestFileOutput); } }
 
         protected Solution()
         {
             Name = GetType().Name;
         }
-
+        
         public abstract TOutput Do(TInput input);
         protected virtual List<TestInput> GetTests() { return new List<TestInput>(); }
 
         private void CreateFile<T>(List<T> values, string path)
         {
+            var dir = Path.GetDirectoryName(path);
+
+            if (!Directory.Exists(dir)) Directory.CreateDirectory(dir);
+
             var inputSerializer = new XmlSerializer(typeof(List<T>));
 
             using (var stream = new FileStream(path, FileMode.OpenOrCreate))
@@ -51,8 +59,8 @@ namespace Sandbox
 
         public void CreateTest(List<TInput> input, List<TOutput> output)
         {
-            CreateFile(input, $"{Name}_input.txt");
-            CreateFile(output, $"{Name}_output.txt");
+            CreateFile(input, TestFileInput);
+            CreateFile(output, TestFileOutput);
         }
 
         public void CreateTest()
@@ -89,8 +97,8 @@ namespace Sandbox
 
         public void Test()
         {
-            var input = ReadFile<TInput>($"{Name}_input.txt");
-            var expectedOutput = ReadFile<TOutput>($"{Name}_output.txt");
+            var input = ReadFile<TInput>(TestFileInput);
+            var expectedOutput = ReadFile<TOutput>(TestFileOutput);
 
             for (int i = 0; i < input.Count; i++)
             {

@@ -77,6 +77,10 @@
     <Compile Include="Sorting\SquaredSubsets.cs" />
     <Compile Include="Sorting\TheEncryption.cs" />
     <Compile Include="Sorting\UnsortedSequence.cs" />
+    <Compile Include="Strings\MorrisPrattAlgorithm.cs" />
+    <Compile Include="Strings\RabinKarpAlgorithm.cs" />
+    <Compile Include="Strings\RabinKarpDoubleHashAlgorithm.cs" />
+    <Compile Include="Strings\SubstringSearchSolution.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

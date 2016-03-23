@@ -15,6 +15,17 @@ namespace Sandbox.DynamicProgramming
 
     public class Coins : Solution<CoinsInput, int>
     {
+        protected override List<TestInput> GetTests()
+        {
+            return new List<TestInput>
+            {
+                new TestInput { Input = new CoinsInput { Coins = new [] { 1, 3, 5 }, Sum = 11 }, Output = 3 },
+                new TestInput { Input = new CoinsInput { Coins = new [] { 1, 3 }, Sum = 11 }, Output = 5 },
+                new TestInput { Input = new CoinsInput { Coins = new [] { 2, 9 }, Sum = 8 }, Output = 4 },
+                new TestInput { Input = new CoinsInput { Coins = new [] { 4, 9 }, Sum = 5 }, Output = 2147483647 },
+            };
+        }
+
         public override int Do(CoinsInput input)
         {
             var min = new int[input.Sum + 1];
